@@ -33,7 +33,7 @@ var addMarker = function(latIn, lngIn, labIn, name){ //Adds a new location with 
 
 }
 
-function addCustomerLocation() { //Gets the location from the user
+function addCustomerLocation() { //Gets the location from the user's saved file
     // Get the place details from the autocomplete object.
     const userPlace = autocomplete.getPlace();
   
@@ -49,6 +49,20 @@ function addCustomerLocation() { //Gets the location from the user
     map.panTo(userPlace.geometry.location);
     map.setZoom(15);
   }
+
+var x = document.getElementById("INSERT NAME OF THING HERE");
+
+function getLocation() {
+    if (navigator.geolocation) {
+      var s = navigator.geolocation.getCurrentPosition();
+      return [s.coords.latitude, s.coords.longitude];
+    } else { 
+      x.innerHTML = "Geolocation is not supported by this browser.";
+      return [0,0];
+    }
+  }
+  
+
 
   initMap(0,0);
 
