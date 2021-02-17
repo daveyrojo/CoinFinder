@@ -4,10 +4,10 @@
 //<input id="autocomplete" placeholder="Enter your address" type="text"></input>
 
 var map;
-function initMap(latIn, lngIn) {
+function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
-      center: { lat: latIn, lng: lngIn }, zoom: 0,
+      center: { lat: 40, lng: -70 }, zoom: 0,
       zoomControl: false
     });
 
@@ -65,6 +65,6 @@ function getLocation() {
   
 
 
-  initMap(0,0);
+  initMap();
 
   //whenever you get an input from coinmap, use addMarker

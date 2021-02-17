@@ -1,17 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coin Finder</title>
 </head>
 <body>
-    
+    <button id='searchButton'>Submit Search</button>
+    <button id='addLocation'>Update Current Location/Radius</button>
+    <input id="radius" placeholder ="search radius" type="text"></input>
 
     <div id="map"></div>
     <input id="autocomplete" placeholder="Enter your address" type="text"></input>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&region=JP"></script>
+    <div id="xhtml"></div>
+    <!--script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeKO8N0Chckhb-ZRAMBwxl-t4JhdUbYg&callback=initMap&region=JP"></script-->
+    <script       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeKO8N0Chckhb-ZRAMBwxl-t4JhdUbYg&callback=initMap&libraries=places&v=weekly" defer></script>
     <!-- Needs actual API key name -->
+
+    
+    <script src='assets/js/script.js'></script>
 </body>
 </html>
