@@ -1,40 +1,66 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CoinFinder</title>
-    <link rel="stylesheet" href="assets/css/foundation.css">
+    <link rel="stylesheet" href="assets/css/foundation.css" />
   </head>
-<body>
-
-  <div class="top-bar">
-    <div class="top-bar-left">
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">CoinFinder</li>
-            <li>
-                <a href="#">One</a>
-                <ul class="menu vertical">
-                    <li><a href="#">One</a></li>
-                    <li><a href="#">Two</a></li>
-                    <li><a href="#">Three</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
+          <li class="menu-text">CoinFinder</li>
+          <li>
+            <a href="#">One</a>
+            <ul class="menu vertical">
+              <li><a href="#">One</a></li>
+              <li><a href="#">Two</a></li>
+              <li><a href="#">Three</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
         </ul>
-    </div>
-    <div class="top-bar-right">
+      </div>
+      <div class="top-bar-right">
         <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
+          <li><input type="search" placeholder="Search" /></li>
+          <li><button type="button" class="button">Search</button></li>
         </ul>
+      </div>
     </div>
-</div>
 
-<script src="assets/js/vendor.js"></script>
-<script src="assets/js/foundation.js"></script>
-</body>
+    <head>
+      <style type="text/css">
+        #map {
+          height: 400px;
+          width: 100%;
+        }
+      </style>
+      <script>
+        function initMap() {
+          var newJersey = { lat: 40.0583, lng: -74.4057 };
+          var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 6,
+            center: newJersey,
+          });
+          var marker = new google.maps.Marker({
+            position: newJersey,
+            map: map,
+          });
+        }
+      </script>
+    </head>
+    <div id="map" class="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeKO8N0Chckhb-ZRAMBwxl-t4JhdUbYg&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+    <script src="assets/js/vendor.js"></script>
+    <script src="assets/js/foundation.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
