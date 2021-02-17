@@ -7,6 +7,8 @@ var minLat = 40;
 var maxLat = 42;
 var minLon = -75;
 var maxLon = -74;
+var lat = 0;
+var lon =0;
 var searchRadius = 1;
 
 var userInput = function(userLat, userLon, radius) {
@@ -22,6 +24,7 @@ var userInput = function(userLat, userLon, radius) {
         
 }
 
+//searches for valid locations
 searchButton.addEventListener('click', function() {
     var searchQuery = 'https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?lat1=' + minLat.toFixed(4) + '&lon1=' + minLon.toFixed(4) + '&lat2=' + maxLat.toFixed(4) + '&lon2=' + maxLon.toFixed(4);
     console.log(minLat, maxLat, minLon, maxLon);
@@ -35,14 +38,15 @@ searchButton.addEventListener('click', function() {
             console.log(data);
             // console.log('-----------------');
             venueObj = data.venues;
-            //for (let i = 0; i < venueObj.length; i++) {
-            //    var venueName = venueObj[i].name;
-            //    console.log(venueName);
-            //    console.log('-----------------');
-            //    console.log(venueObj[i].lat);
-            //    console.log('-----------------');
-            //    console.log(venueObj[i].lon);
-            //}
+            for (let i = 0; i < venueObj.length; i++) {
+               var venueName = venueObj[i].name;
+               console.log(venueName);
+               console.log('-----------------');
+               console.log(venueObj[i].lat);
+               console.log('-----------------');
+               console.log(venueObj[i].lon);
+               addMarker(venueObj[i].lat, venueObj[i].lon,i+" ",venueName);
+            }
 
         })
 })
@@ -51,6 +55,7 @@ searchButton.addEventListener('click', function() {
 
 var map;
 var autocomplete;
+//initializes the map
 function initMap() {
     console.log("initializing map");
     map = new google.maps.Map(document.getElementById("map"), {
@@ -70,9 +75,18 @@ function initMap() {
 
   }
 
+  var addMarker = function(latIn, lngIn, labIn, name){ //Adds a new location with a given name, label, and location data
+    var marker = new google.maps.Marker({
+        position: { lat: latIn, lng: lngIn},
+        label:labIn,
+        title:name
+    });
 
+    marker.setMap(map);
+
+}
   
-
+//gets an inputed address
 function addCustomerLocation() { //Gets the location from the user's saved file
   // Get the place details from the autocomplete object.
   console.log("customer location added?");
@@ -98,7 +112,7 @@ function addCustomerLocation() { //Gets the location from the user's saved file
 var x = document.getElementById("xhtml");// name of something in the html
 locButton.addEventListener("click", getLocation);
 
-
+//gets html location
 function getLocation() {
     console.log("getting location");
     if(radInput.value){
@@ -117,9 +131,11 @@ function getLocation() {
     return addCustomerLocation();
   }
 }
-
+//helper function for above
 function returnPosition(position){
     console.log("in return "+position.coords.latitude+" "+position.coords.longitude);
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
     userInput(position.coords.latitude, position.coords.longitude, searchRadius);
     return [position.coords.latitude, position.coords.longitude];//seems not to return?
 }
