@@ -1,3 +1,7 @@
+* {
+  font-family: "Rubik", sans-serif;
+}
+/* NavBar Styles */
 .topbar-responsive {
   background: #2c3840;
   padding: 1rem 1.5rem;
@@ -125,100 +129,28 @@
     animation: fadeIn 1s ease-in;
   }
 }
+/* MainBody Styles */
 
-.large-article-header {
+.hero-section {
   background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80")
-    no-repeat center;
+    50% no-repeat;
   background-size: cover;
-  height: 31.25rem;
-  position: relative;
-}
-
-@media screen and (max-width: 39.9375em) {
-  .large-article-header {
-    height: 20.83333rem;
-  }
-}
-
-.large-article-header-content {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: absolute;
-  bottom: 3.125rem;
-  left: 0;
-  right: 0;
-}
-
-@media screen and (max-width: 39.9375em) {
-  .large-article-header-content {
-    bottom: 1.25rem;
-  }
-}
-
-.large-article-header-content .center-container {
-  width: 50%;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 39.9375em) {
-  .large-article-header-content .center-container {
-    width: 100%;
-    padding: 0 1.25rem;
-  }
-}
-
-.large-article-header-content .article-date {
-  color: #fefefe;
-}
-
-.large-article-header-content .article-title h1 {
-  line-height: 3.125rem;
-  color: #fefefe;
-  font-weight: 600;
-}
-
-@media screen and (max-width: 39.9375em) {
-  .large-article-header-content .article-title h1 {
-    line-height: 1.875rem;
-  }
-}
-
-.large-article-header-content .article-details {
+  height: 30vh;
+  text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.large-article-header-content .article-details a {
+.hero-section .hero-section-text {
   color: #fefefe;
-}
-
-.large-article-header-content .article-author {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 1rem 0;
-}
-
-.large-article-header-content .article-author img {
-  border-radius: 3.125rem;
-}
-
-.large-article-header-content .article-author a {
-  margin-left: 1rem;
+  text-shadow: 1px 1px 2px #0a0a0a;
 }
 
 /* Footer Styles */
