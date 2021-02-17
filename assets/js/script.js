@@ -2,17 +2,19 @@
 //longitude = 54.6 miles
 var searchButton = document.querySelector('#searchButton');
 var locButton = document.querySelector('#addLocation');
+var radInput = document.querySelector('#radius');
 var minLat = 40;
 var maxLat = 42;
 var minLon = -75;
 var maxLon = -74;
 var searchRadius = 1;
 
-var userInput = function(userLat, userLon, searchRadius) {
+var userInput = function(userLat, userLon, radius) {
     if (searchRadius <= 0) {
         console.log('Radius is not positive');
         return;
     }
+    console.log(userLat+" "+userLon+" "+searchRadius);
     minLat = userLat - searchRadius/69.0;
     maxLat = userLat + searchRadius/69.0;
     minLon = userLon - searchRadius/54.6;
@@ -76,6 +78,7 @@ function addCustomerLocation() { //Gets the location from the user's saved file
   console.log("customer location added?");
     const userPlace = autocomplete.getPlace();
 
+
     // Add a marker to the map.
     const marker = new google.maps.Marker({
             map
@@ -98,6 +101,11 @@ locButton.addEventListener("click", getLocation);
 
 function getLocation() {
     console.log("getting location");
+    if(radInput.value){
+        
+        searchRadius = radInput.value;
+        console.log(searchRadius);
+    }
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(returnPosition);
     
@@ -110,15 +118,10 @@ function getLocation() {
   }
 }
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-    return position;
-  }
 function returnPosition(position){
     console.log("in return "+position.coords.latitude+" "+position.coords.longitude);
     userInput(position.coords.latitude, position.coords.longitude, searchRadius);
-    return [position.coords.latitude, position.coords.longitude];
+    return [position.coords.latitude, position.coords.longitude];//seems not to return?
 }
 
 
