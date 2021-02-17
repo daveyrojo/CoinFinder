@@ -48,9 +48,10 @@ function addCustomerLocation() { //Gets the location from the user's saved file
     // Zoom the map to the marker.
     map.panTo(userPlace.geometry.location);
     map.setZoom(15);
+    return [userPlace.geometry.location.latitude,userPlace.geometry.location.longitude ];
   }
 
-var x = document.getElementById("INSERT NAME OF THING HERE");
+var x = document.getElementById("INSERT NAME OF THING HERE");// name of something in the html
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -58,7 +59,7 @@ function getLocation() {
       return [s.coords.latitude, s.coords.longitude];
     } else { 
       x.innerHTML = "Geolocation is not supported by this browser.";
-      return [0,0];
+      return addCustomerLocation();
     }
   }
   
