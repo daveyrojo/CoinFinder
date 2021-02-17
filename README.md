@@ -41,10 +41,18 @@
             https://www.youtube.com/watch?v=DEu5xYEZx18
     - Google slides for basic layout design (optional)
         https://cloud.google.com/maps-platform/retail/getting-started
+        - Earthquake Markers
+            https://developers.google.com/maps/documentation/javascript/earthquakes#maps_earthquake_markers-javascript
+        - Geocoding Requests
+            https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingRequests
     - Coinmap
         https://coinmap.org/api/v1/venues/
             - Needs this infront of it to work:
                 https://cors-anywhere.herokuapp.com/
+    - GetLocation API
+        https://w3c.github.io/geolocation-api/
+        - GL tutorial (node specific)
+        https://rapidapi.com/blog/geolocation-backend-node-express/
     
 # Work Flow:
 
