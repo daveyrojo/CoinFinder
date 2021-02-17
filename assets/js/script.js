@@ -21,6 +21,13 @@ var userInput = function(userLat, userLon, radius) {
     maxLat = userLat + searchRadius/69.0;
     minLon = userLon - searchRadius/54.6;
     maxLon = userLon + searchRadius/54.6;
+
+    const marker = new google.maps.Marker({
+      map,
+      //color: blue, 
+      position: { lat: userLat, lng: userLon},
+      label: "You are here"
+      });
         
 }
 
@@ -64,7 +71,14 @@ var autocomplete;
   center: eastCoast
   });
 
-
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"),
+    { types: ["geocode"],
+      componentRestrictions: {'country': ['gb']},
+      fields: ['place_id', 'geometry', 'formatted_address'] }
+  );
+//console.log(autocomplete);  
+autocomplete.addListener("place_changed", addCustomerLocation);
   
 }
 
@@ -81,17 +95,7 @@ var autocomplete;
 
 }
 
-function initAuto(){
-  //console.log(map)
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("autocomplete"),
-    { types: ["geocode"],
-      componentRestrictions: {'country': ['gb']},
-      fields: ['place_id', 'geometry', 'formatted_address'] }
-  );
-//console.log(autocomplete);  
-autocomplete.addListener("place_changed", addCustomerLocation);
-}
+
 
 //gets an inputed address
 function addCustomerLocation() { //Gets the location from the user's saved file
@@ -101,18 +105,21 @@ function addCustomerLocation() { //Gets the location from the user's saved file
 
 
     // Add a marker to the map.
-    const marker = new google.maps.Marker({
-            map
-            });
+    // const marker = new google.maps.Marker({
+    //         map
+    //         });
 
-    marker.setLabel("YOU ARE HERE");
-    marker.setPosition(userPlace.geometry.location);
+    // marker.setLabel("YOUR ADDRESS");
+    // marker.setPosition(userPlace.geometry.location);
 
-    // Zoom the map to the marker.
-    map.panTo(userPlace.geometry.location);
-    map.setZoom(15);
+    // // Zoom the map to the marker.
+    // map.panTo(userPlace.geometry.location);
+    // map.setZoom(15);
 
-
+    lat = userPlace.geometry.location[0];
+    lon = userPlace.geometry.location[1];
+    console.log(lat+" "+lon+ " "+ userPlace.geometry.location+" "+typeof(userPlace.geometry.location) +" "+userPlace.geometry.location.value);
+    userInput(lat, lon, searchRadius);
     return [userPlace.geometry.location.latitude,userPlace.geometry.location.longitude ];
 }
 
@@ -121,6 +128,7 @@ locButton.addEventListener("click", getLocation);
 
 //gets html location
 function getLocation() {
+
     console.log("getting location");
     if(radInput.value){
         
@@ -151,4 +159,3 @@ function returnPosition(position){
 //initMap(); it does this automatically
 //usIn = getLocation();
 //console.log(usIn);
-
