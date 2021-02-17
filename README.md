@@ -76,3 +76,6 @@
     - Coinmap api pulls lattitude and longitude of vendor/atm
     - Lat/Long is inputed into google maps
     - Google maps generates the location
+
+
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&region=JP"></script> 

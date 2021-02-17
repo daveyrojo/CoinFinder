@@ -1,9 +1,20 @@
+//get search query on button click
+//get google maps sub function in main function
+//produce on page
+//make dynamic variables//have search query work with variables
+
 // const fetch = require('node-fetch');
 // var corsWorkAround = 'https://cors-anywhere.herokuapp.com/';
-let searchButton = document.getElementById('searchButton');
+// searchButton.addEventListeneter('click', function() {
+    
+// })
 
-searchButton.addEventListeneter('click', function() {
-    fetch('https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?lat1=4.6&lon1=-74&lat2=5.8&lon2=-75',)
+//var userLat = <ui>
+//var maxLat = userLat + 1
+var searchButton = document.querySelector('#searchButton');
+
+searchButton.addEventListener('click', function() {
+    fetch('https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?lat1=40&lon1=-75&lat2=42&lon2=-74',)
         .then(function (response) {
             console.log(response);
             return response.json();
@@ -19,31 +30,12 @@ searchButton.addEventListeneter('click', function() {
                 console.log(venueObj[i].lat);
                 console.log('-----------------');
                 console.log(venueObj[i].lon);
-                
             }
         })
+
 })
 
 
-// fetch('https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?query=new_jersey',)
-//     .then(function (response) {
-//         console.log(response);
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//         // console.log('-----------------');
-//         venueObj = data.venues;
-//         for (let i = 0; i < venueObj.length; i++) {
-//             var venueName = venueObj[i].name;
-//             console.log(venueName);
-//             console.log('-----------------');
-//             console.log(venueObj[i].lat);
-//             console.log('-----------------');
-//             console.log(venueObj[i].lon);
-
-//         }
-//     })
 
 
 //var userLong = lon1+= <insertuserlongitude>
