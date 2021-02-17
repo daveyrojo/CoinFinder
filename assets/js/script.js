@@ -55,13 +55,15 @@ searchButton.addEventListener('click', function() {
 getLatLon();
 
 function getLatLon() {
+    //need to make location a variable that responds to an input field
     var location = '210 Cambridge Ave Jersey City, NJ';
+    //need to write this fetch so it accepts above variable
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
         params: {
             address: location,
             key: 'AIzaSyDwit_ck5hR1Olc9m0xDLOuZmRaJTZN8F4'
         }
-    })
+    }) // can probably clean up code below this point
         .then(function (response) {
             // console.log(response);
             let googleData = response.data;
