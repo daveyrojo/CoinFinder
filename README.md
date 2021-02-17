@@ -120,4 +120,9 @@
     - Google maps generates the location
 
 
+## priorities:
+    - get map working
+    
+
+
     

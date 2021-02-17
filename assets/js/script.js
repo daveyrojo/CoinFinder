@@ -29,7 +29,7 @@ var userInput = function(userLat, userLon, searchRadius) {
 }
 
 searchButton.addEventListener('click', function() {
-    var searchQuery = 'https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?lat1=' + minLat.toFixed(4) + '&lon1=' + minLon.toFixed(4) + '&lat2=' + maxLat.toFixed(4) + '&lon2=' + maxLon.toFixed(4);
+    var searchQuery = 'https://cors-anywhere.herokuapp.com/https://coinmap.org/api/v1/venues/?lat1=' + minLat+ '&lon1=' + minLon+ '&lat2=' + maxLat + '&lon2=' + maxLon;
     console.log(minLat, maxLat, minLon, maxLon);
     console.log(searchQuery);
     fetch(searchQuery)
@@ -52,7 +52,34 @@ searchButton.addEventListener('click', function() {
         })
 })
 
-userInput(40, -72, 100);
+getLatLon();
+
+function getLatLon() {
+    var location = '210 Cambridge Ave Jersey City, NJ';
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
+        params: {
+            address: location,
+            key: 'AIzaSyDwit_ck5hR1Olc9m0xDLOuZmRaJTZN8F4'
+        }
+    })
+        .then(function (response) {
+            // console.log(response);
+            let googleData = response.data;
+            // console.log(googleData);
+            let locationData = googleData.results;
+            // console.log(locationData);
+            let addressCode = locationData[0];
+            // console.log(addressCode);
+            let geoCode = addressCode.geometry;
+            // console.log(geoCode);
+            let coords = geoCode.location;
+            // console.log(coords);
+            let userLat = coords.lat;
+            let userLon = coords.lng;
+            console.log(userLat, userLon);
+        })
+}
+userInput(40.7496958, -74.0459631, 1);
 
 
 
