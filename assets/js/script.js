@@ -55,37 +55,44 @@ searchButton.addEventListener('click', function() {
 
 var map;
 var autocomplete;
-//initializes the map
-function initMap() {
-    console.log("initializing map");
-    map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 4,
-      center: { lat: 40, lng: -72 }, zoom: 1,
-      zoomControl: false
-    });
-    console.log(map)
-    autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById("autocomplete"),
-        { types: ["geocode"],
-          componentRestrictions: {'country': ['gb']},
-          fields: ['place_id', 'geometry', 'formatted_address'] }
-      );
-    console.log(autocomplete);  
-    autocomplete.addListener("place_changed", addCustomerLocation);
+ //initializes the map
+ function initMap() {
+  var eastCoast = { lat: 40.0, lng: -72.0 };
+  console.log("initializing map");
+  map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 6,
+  center: eastCoast
+  });
 
-  }
+
+  
+}
 
   var addMarker = function(latIn, lngIn, labIn, name){ //Adds a new location with a given name, label, and location data
+    console.log("Adding marker at "+latIn+" "+lngIn+" "+labIn+" "+name);
     var marker = new google.maps.Marker({
         position: { lat: latIn, lng: lngIn},
         label:labIn,
-        title:name
+        title:name,
+        //map:map
     });
 
     marker.setMap(map);
 
 }
-  
+
+function initAuto(){
+  //console.log(map)
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"),
+    { types: ["geocode"],
+      componentRestrictions: {'country': ['gb']},
+      fields: ['place_id', 'geometry', 'formatted_address'] }
+  );
+//console.log(autocomplete);  
+autocomplete.addListener("place_changed", addCustomerLocation);
+}
+
 //gets an inputed address
 function addCustomerLocation() { //Gets the location from the user's saved file
   // Get the place details from the autocomplete object.
@@ -133,7 +140,7 @@ function getLocation() {
 }
 //helper function for above
 function returnPosition(position){
-    console.log("in return "+position.coords.latitude+" "+position.coords.longitude);
+    //console.log("in return "+position.coords.latitude+" "+position.coords.longitude);
     lat = position.coords.latitude;
     lon = position.coords.longitude;
     userInput(position.coords.latitude, position.coords.longitude, searchRadius);
