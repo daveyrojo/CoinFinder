@@ -168,9 +168,17 @@ function addCustomerLocation() { //Gets the location from the user's saved file
 
     lat = userPlace.geometry.location[0];
     lon = userPlace.geometry.location[1];
+    console.log(""+userPlace.geometry.location);
+    var editedStr = (""+userPlace.geometry.location).substring(1);
+    editedStr = editedStr.substring(0, editedStr.length - 1);
+    console.log(editedStr);
+    var edit =editedStr.split(/[\s,]+/);
+    console.log(edit[0]+" and "+edit[1]);
+    lat = Number(edit[0]);
+    lon = Number(edit[1]);
     console.log(lat+" "+lon+ " "+ userPlace.geometry.location+" "+typeof(userPlace.geometry.location) +" "+userPlace.geometry.location.value);
     userInput(lat, lon);
-    return [userPlace.geometry.location.latitude,userPlace.geometry.location.longitude ];
+    return [lat, lon ];
 }
 
 var x = document.getElementById("xhtml");// name of something in the html
