@@ -80,7 +80,7 @@ var searchAddress = document.querySelector('#searchAddress');
 //needs to be made for input field
 var userAddress = '210 Cambridge Ave Jersey City, NJ';
 
-searchAddress.addEventListener('click', function getLatLon(userAddress) {
+/* searchAddress.addEventListener('click', function getLatLon(userAddress) {
     //need to change to a variable
     var location = '210 Cambridge Ave Jersey City, NJ';
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
@@ -106,7 +106,7 @@ searchAddress.addEventListener('click', function getLatLon(userAddress) {
             console.log(userLat, userLon);
 
         })
-});
+}); */
 
 var map;
 var autocomplete;
@@ -124,7 +124,6 @@ var autocomplete;
   autocomplete = new google.maps.places.Autocomplete(
     document.getElementById("autocomplete"),
     { types: ["geocode"],
-      componentRestrictions: {'country': ['gb']},
       fields: ['place_id', 'geometry', 'formatted_address'] }
   );
 //console.log(autocomplete);  
