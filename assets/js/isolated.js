@@ -1,3 +1,7 @@
+var string = '74.8888hellothere7';
+var pointNum = parseFloat(string);
+console.log(pointNum);
+
 //latitude = 69 miles
 //longitude = 54.6 miles
 var searchButton = document.querySelector('#searchButton');
