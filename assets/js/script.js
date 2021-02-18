@@ -57,7 +57,7 @@ searchButton.addEventListener('click', function () {
         addMarker(venueObj[i].lat, venueObj[i].lon, x + " ", venueName);
         if (i <= 10) {
           var listElement = document.createElement('li');
-          listElement.innerHTML = '<ul>' + venueName + '</ul>'; 
+          listElement.innerHTML = '<ul>' + x + ' ' + venueName + '</ul>'; 
           resultsElement.appendChild(listElement);
 
         }
