@@ -1,4 +1,4 @@
-var resultsElement = document.querySelector("") ///need div 
+var resultsElement = document.querySelector("#list") ///need div 
 //latitude = 69 miles
 //longitude = 54.6 miles
 var searchButton = document.querySelector('#searchButton');
