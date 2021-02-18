@@ -47,11 +47,11 @@ searchButton.addEventListener('click', function () {
             venueObj = data.venues;
             for (let i = 0; i < venueObj.length; i++) {
                 var venueName = venueObj[i].name;
-                console.log(venueName);
-                console.log('-----------------');
-                console.log(venueObj[i].lat);
-                console.log('-----------------');
-                console.log(venueObj[i].lon);
+                // console.log(venueName);
+                // console.log('-----------------');
+                // console.log(venueObj[i].lat);
+                // console.log('-----------------');
+                // console.log(venueObj[i].lon);
                 addMarker(venueObj[i].lat, venueObj[i].lon, i + " ", venueName);
             }
 
@@ -95,4 +95,66 @@ var addMarker = function (latIn, lngIn, labIn, name) { //Adds a new location wit
 
     marker.setMap(map);
 
+}
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: { lat: 40, lng: -70 }, zoom: 0,
+        zoomControl: false
+    });
+
+    const autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("autocomplete"),
+        {
+            types: ["geocode"],
+            componentRestrictions: { 'country': ['gb'] },
+            fields: ['place_id', 'geometry', 'formatted_address']
+        }
+    );
+
+    autocomplete.addListener("place_changed", addCustomerLocation);
+
+}
+
+var addMarker = function (latIn, lngIn, labIn, name) { //Adds a new location with a given name, label, and location data
+    var marker = new google.maps.Marker({
+        position: { lat: latIn, lng: lngIn },
+        label: labIn,
+        title: name
+    });
+
+    marker.setMap(map);
+
+}
+
+function addCustomerLocation() { //Gets the location from the user's saved file
+    // Get the place details from the autocomplete object.
+    const userPlace = autocomplete.getPlace();
+
+    // Add a marker to the map.
+    const marker = new google.maps.Marker({
+        map
+    });
+
+    marker.setLabel("YOU ARE HERE");
+    marker.setPosition(userPlace.geometry.location);
+    console.log(userPlace.geometry.location.value);
+    // Zoom the map to the marker.
+    map.panTo(userPlace.geometry.location);
+    map.setZoom(15);
+    return [userPlace.geometry.location.latitude, userPlace.geometry.location.longitude];
+}
+
+var x = document.getElementById("INSERT NAME OF THING HERE");// name of something in the html
+
+function getLocation() {
+    if (navigator.geolocation) {
+        var s = navigator.geolocation.getCurrentPosition();
+        return [s.coords.latitude, s.coords.longitude];
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+        return addCustomerLocation();
+    }
 }
