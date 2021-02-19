@@ -140,7 +140,7 @@ body{
   background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80")
     50% no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 25vh;
   text-align: center;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -191,8 +191,13 @@ body{
   transition: color 0.3s ease-in;
 }
 
-iframe{
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
+/* Minor styling changes */
+.card-divider{
+  background-color: #1779ba;
 }
+
+h6{
+  margin-left: auto;
+  margin-right: auto;
+}
+

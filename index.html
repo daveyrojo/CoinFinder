@@ -25,8 +25,9 @@
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-  <!-- Navigation Bar -->
+
   <body>
+    <!-- Navigation Bar -->
     <div id="top-nav">
       <nav class="top-bar topbar-responsive">
         <div class="top-bar-title">
@@ -67,32 +68,41 @@
         <h5>...spend your coin</h5>
       </div>
     </div>
+    <br>
     <!-- Main field with map and results -->
     <main>
       <div class="grid-container">
         <div class="grid-x grid-padding-x">
           <div class="medium-6 large-auto cell">
-            <div>
-                Map
-                <button id='searchButton'>Submit Search</button>
-                <button id='addLocation'>Update Current Location/Radius</button>
-                <input id="radius" placeholder ="search radius" type="text"></input>
-                <input id="autocomplete" placeholder="Enter an address" type="text"></input>
-                <style type="text/css">
-                    #map{
-                        height:500px;
-                        width:100%
-                    }
-                </style>
-                    
-                <div id="map" class = "map"></div>
-                <div id="xhtml"></div>
+            <div class="card">
+              <div class="card-section">
+                <div>
+                  <input id="radius" placeholder ="search radius" type="text"></input>
+                  <input id="autocomplete" placeholder="Enter an address" type="text"></input>
+                  <style type="text/css">
+                      #map{
+                          height:500px;
+                          width:100%
+                      }
+                  </style>                
+                  <div id="map" class = "map"></div>
+                  <div id="xhtml"></div>
+              </div>
+              </div>
+              <div class="card">
+                <button id='searchButton' class="success button" >Submit Search</button>
+                <button id='addLocation' class="primary button">Update Current Location/Radius</button>
+              </div>
             </div>
           </div>
           <div class="medium-6 large-auto cell">
-            <div id="list">
-              Results
-                
+            <div class="card">
+                <div class="card-divider">
+                  <h6 style="color: #fff; font-weight: bolder;">Results</h6>
+                </div>
+              <div class="card-section">
+                  <div id="list"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -101,10 +111,12 @@
     <!-- Footer with options to add social media icons or other link information -->
     <footer class="social-footer">
       <div class="social-footer-left">
+        <!-- Empty placeholder for possible company logo -->
         <a href="#"><img class="logo" src="" /></a>
       </div>
       <div class="social-footer-icons">
         <ul class="menu simple">
+          <!-- Listed menu to add social media links -->
           <li></li>
           <li></li>
           <li></li>
