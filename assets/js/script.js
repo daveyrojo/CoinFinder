@@ -1,3 +1,4 @@
+
 var resultsElement = document.querySelector("#list") ///need div 
 //latitude = 69 miles
 //longitude = 54.6 miles
@@ -11,7 +12,11 @@ var maxLon = -74;
 var lat = 0;
 var lon = 0;
 
+<<<<<<< HEAD
 if (!localStorage.getItem("coinRadius")) {
+=======
+if(!localStorage.getItem("coinRadius")){
+>>>>>>> 7b1d05e4eb0c27bafa2694a0f82775f3025875bc
   localStorage.setItem("coinRadius", 1);
 }
 
@@ -135,6 +140,7 @@ function addCustomerLocation() { //Gets the location from the user's saved file
   // map.setZoom(15);
 
 
+<<<<<<< HEAD
   //console.log(""+userPlace.geometry.location);
   var editedStr = ("" + userPlace.geometry.location).substring(1);
   editedStr = editedStr.substring(0, editedStr.length - 1);
@@ -145,6 +151,18 @@ function addCustomerLocation() { //Gets the location from the user's saved file
   lon = Number(edit[1]);
   //console.log(lat+" "+lon+ " "+ userPlace.geometry.location+" "+typeof(userPlace.geometry.location) +" "+userPlace.geometry.location.value);
   userInput(lat, lon);
+=======
+    //console.log(""+userPlace.geometry.location);
+    var editedStr = (""+userPlace.geometry.location).substring(1);
+    editedStr = editedStr.substring(0, editedStr.length - 1);
+    //console.log(editedStr);
+    var edit =editedStr.split(/[\s,]+/);
+    //console.log(edit[0]+" and "+edit[1]);
+    lat = Number(edit[0]);
+    lon = Number(edit[1]);
+    //console.log(lat+" "+lon+ " "+ userPlace.geometry.location+" "+typeof(userPlace.geometry.location) +" "+userPlace.geometry.location.value);
+    userInput(lat, lon);
+>>>>>>> 7b1d05e4eb0c27bafa2694a0f82775f3025875bc
 
 }
 
@@ -158,7 +176,11 @@ function getLocation() {
   if (radInput.value) {
 
 
+<<<<<<< HEAD
     localStorage.setItem("coinRadius", radInput.value);
+=======
+    localStorage.setItem("coinRadius",radInput.value ) ;
+>>>>>>> 7b1d05e4eb0c27bafa2694a0f82775f3025875bc
 
   }
   if (navigator.geolocation) {
