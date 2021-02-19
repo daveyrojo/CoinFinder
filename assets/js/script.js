@@ -10,14 +10,20 @@ var minLon = -75;
 var maxLon = -74;
 var lat = 0;
 var lon = 0;
-var searchRadius = 1;
 
-var userInput = function (userLat, userLon, radius) {
-  if (searchRadius <= 0) {
+if (!localStorage.getItem("coinRadius")) {
+  localStorage.setItem("coinRadius", 1);
+}
+
+var userInput = function (userLat, userLon) {
+  if (localStorage.getItem("coinRadius") <= 0) {
+
     // console.log('Radius is not positive');
     return;
   }
   // console.log(userLat + " " + userLon + " " + searchRadius);
+
+  searchRadius = localStorage.getItem("coinRadius");
   minLat = userLat - searchRadius / 69.0;
   maxLat = userLat + searchRadius / 69.0;
   minLon = userLon - searchRadius / 54.6;
@@ -55,9 +61,11 @@ searchButton.addEventListener('click', function () {
         // console.log('-----------------');
         // console.log(venueObj[i].lon);
         addMarker(venueObj[i].lat, venueObj[i].lon, x + " ", venueName);
-        if (i <= 10) {
+
+        if (i < 10) {
+
           var listElement = document.createElement('li');
-          listElement.innerHTML = '<ul>' + x + ' ' + venueName + '</ul>'; 
+          listElement.innerHTML = '<ul>' + x + ' ' + venueName + '</ul>';
           resultsElement.appendChild(listElement);
 
         }
@@ -83,7 +91,7 @@ function initMap() {
     document.getElementById("autocomplete"),
     {
       types: ["geocode"],
-      componentRestrictions: { 'country': ['gb'] },
+
       fields: ['place_id', 'geometry', 'formatted_address']
     }
   );
@@ -126,12 +134,18 @@ function addCustomerLocation() { //Gets the location from the user's saved file
   // map.panTo(userPlace.geometry.location);
   // map.setZoom(15);
 
-  lat = userPlace.geometry.location[0];
-  lon = userPlace.geometry.location[1];
-  console.log(userPlace.geometry.location[1];);
-  // console.log(lat + " " + lon + " " + userPlace.geometry.location + " " + typeof (userPlace.geometry.location) + " " + userPlace.geometry.location.value);
-  userInput(lat, lon, searchRadius);
-  return [userPlace.geometry.location.latitude, userPlace.geometry.location.longitude];
+
+  //console.log(""+userPlace.geometry.location);
+  var editedStr = ("" + userPlace.geometry.location).substring(1);
+  editedStr = editedStr.substring(0, editedStr.length - 1);
+  //console.log(editedStr);
+  var edit = editedStr.split(/[\s,]+/);
+  //console.log(edit[0]+" and "+edit[1]);
+  lat = Number(edit[0]);
+  lon = Number(edit[1]);
+  //console.log(lat+" "+lon+ " "+ userPlace.geometry.location+" "+typeof(userPlace.geometry.location) +" "+userPlace.geometry.location.value);
+  userInput(lat, lon);
+
 }
 
 var x = document.getElementById("xhtml");// name of something in the html
@@ -143,8 +157,9 @@ function getLocation() {
   // console.log("getting location");
   if (radInput.value) {
 
-    searchRadius = radInput.value;
-    console.log(searchRadius);
+
+    localStorage.setItem("coinRadius", radInput.value);
+
   }
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(returnPosition);
@@ -162,14 +177,8 @@ function returnPosition(position) {
   //console.log("in return "+position.coords.latitude+" "+position.coords.longitude);
   lat = position.coords.latitude;
   lon = position.coords.longitude;
-  userInput(position.coords.latitude, position.coords.longitude, searchRadius);
+  userInput(position.coords.latitude, position.coords.longitude);
+
   return [position.coords.latitude, position.coords.longitude];//seems not to return?
 }
-
-
-//initMap(); it does this automatically
-//usIn = getLocation();
-//console.log(usIn);
-
-
 
