@@ -74,11 +74,25 @@
           <div class="medium-6 large-auto cell">
             <div>
                 Map
+                <button id='searchButton'>Submit Search</button>
+                <button id='addLocation'>Update Current Location/Radius</button>
+                <input id="radius" placeholder ="search radius" type="text"></input>
+                <input id="autocomplete" placeholder="Enter an address" type="text"></input>
+                <style type="text/css">
+                    #map{
+                        height:500px;
+                        width:100%
+                    }
+                </style>
+                    
+                <div id="map" class = "map"></div>
+                <div id="xhtml"></div>
             </div>
           </div>
           <div class="medium-6 large-auto cell">
-            <div>
+            <div id="list">
               Results
+                
             </div>
           </div>
         </div>
@@ -97,5 +111,9 @@
         </ul>
       </div>
     </footer>
+    <script type='text/javascript' src='config.js'></script>
+    <script       src=
+    "https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeKO8N0Chckhb-ZRAMBwxl-t4JhdUbYg&callback=initMap&libraries=places&v=weekly" async></script>
+    <script src='assets/js/script.js'></script>
   </body>
 </html>
