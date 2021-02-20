@@ -28,6 +28,7 @@
 
   <body>
     <!-- Navigation Bar -->
+    <section>
     <div id="top-nav">
       <nav class="top-bar topbar-responsive">
         <div class="top-bar-title">
@@ -35,12 +36,12 @@
           <a class="topbar-responsive-logo" href="#"
             ><strong
               ><i
-                style="color: goldenrod; font-size: 35px"
+                style="color: goldenrod; font-size: 20px"
                 class="fas fa-coins"
               ></i>
               Coin
               <i
-                style="color: limegreen; font-size: 35px"
+                style="color: limegreen; font-size: 20px"
                 class="fas fa-search-location"
               ></i>
               FInder</strong
@@ -53,7 +54,7 @@
               style="font-weight: bolder"
               class="menu simple vertical medium-horizontal"
             >
-              <li><a href="#">Home</a></li>
+              <li class="striped"><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
@@ -61,24 +62,32 @@
         </div>
       </nav>
     </div>
+    </section>
     <!-- Header with background image -->
+    <section>
     <div class="header">
       <div class="header-text">
         <h1></h1>
         <h5>...spend your coin</h5>
       </div>
     </div>
+    </section>
     <br>
+    <!-- Instruction on how to use search fields -->
     <section>
+      <div class="grid-container">
       <div class="how_to">
-        <h6>Instructions</h6>
         <ul>
-          <li>Enter an address you'd like the search for venues nearby</li>
+          <li style="background-color:#F1B24A;">Enter an address you'd like the search for venues nearby</li>
           <li>Enter a search radius which is measured in ?</li>
-          <li>Alternatively click "Update Current Location/Radius to use your current location</li>
+          <li style="background-color: #F1B24A;">"Update Current Location/Radius" to use current location</li>
+          <li>Results are shown in adjacent box</li>
+
         </ul>
       </div>
+      </div>
     </section>
+    <br>
     <!-- Main field with map and results -->
     <main>
       <div class="grid-container">
@@ -99,9 +108,9 @@
                   <div id="xhtml"></div>
               </div>
               </div>
-              <div class="card">
-                <button id='searchButton' class="success button" >Submit Search</button>
+              <div class="card" id="card-buttons">
                 <button id='addLocation' class="primary button">Update Current Location/Radius</button>
+                <button id='searchButton' class="success button" >Submit Search</button>
               </div>
             </div>
           </div>
