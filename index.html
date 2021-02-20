@@ -69,6 +69,16 @@
       </div>
     </div>
     <br>
+    <section>
+      <div class="how_to">
+        <h6>Instructions</h6>
+        <ul>
+          <li>Enter an address you'd like the search for venues nearby</li>
+          <li>Enter a search radius which is measured in ?</li>
+          <li>Alternatively click "Update Current Location/Radius to use your current location</li>
+        </ul>
+      </div>
+    </section>
     <!-- Main field with map and results -->
     <main>
       <div class="grid-container">
@@ -77,8 +87,8 @@
             <div class="card">
               <div class="card-section">
                 <div>
-                  <input id="radius" placeholder ="search radius" type="text"></input>
                   <input id="autocomplete" placeholder="Enter an address" type="text"></input>
+                  <input id="radius" placeholder ="search radius" type="text"></input>
                   <style type="text/css">
                       #map{
                           height:500px;
@@ -98,7 +108,7 @@
           <div class="medium-6 large-auto cell">
             <div class="card">
                 <div class="card-divider">
-                  <h6 style="color: #fff; font-weight: bolder;">Results</h6>
+                  <h6 class="venue_results" style="color: #fff; font-weight: bolder;">Results</h6>
                 </div>
               <div class="card-section">
                   <div id="list"></div>

@@ -196,8 +196,17 @@ body{
   background-color: #1779ba;
 }
 
-h6{
+.venue_results{
   margin-left: auto;
   margin-right: auto;
 }
 
+.how_to ul{
+  background-color: #fefefe;
+  text-align: center;
+  list-style-type: none;
+}
+
+.how_to h6{
+  background-color: #1779ba;
+}
