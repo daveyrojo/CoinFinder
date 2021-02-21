@@ -93,6 +93,10 @@
     - Utilized agile project management to adapt to individual challenges as a group
     - Project is adaptive to screen size change
 
+## Links
+https://github.com/daveyrojo/CoinFinder
+https://daveyrojo.github.io/CoinFinder/
+
 ## Screenshots
 Title
 ![coin-finder](assets/img/titlegraphic.png)
@@ -100,6 +104,7 @@ Plain Map
 ![coin-finder](assets/img/plainmap.png)
 Map w/ Search Results
 ![coin-finder](assets/img/mapwresults.png)
+
     
 
 
