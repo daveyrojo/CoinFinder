@@ -54,40 +54,7 @@
         https://w3c.github.io/geolocation-api/
         - GL tutorial (node specific)
         https://rapidapi.com/blog/geolocation-backend-node-express/
-    -Coin Objects from Coinmap api:
-0: {symbol: "BTC", priority: 1337, id: 1, name: "Bitcoin", logo: "/img/coins/BTC.svg"}
-1: {symbol: "XMR", priority: 5, id: 2, name: "Monero", logo: "/img/coins/XMR.svg"}
-2: {symbol: "LTC", priority: 4, id: 3, name: "Litecoin", logo: "/img/coins/LTC.svg"}
-3: {symbol: "ETH", priority: 3, id: 4, name: "Ethereum", logo: "/img/coins/ETH.svg"}
-4: {symbol: "ADA", priority: 2, id: 5, name: "Cardano", logo: "/img/coins/ADA.svg"}
-5: {symbol: "USDT", priority: 1, id: 6, name: "Tether", logo: "/img/coins/USDT.svg"}
-6: {symbol: "DOGE", priority: 0, id: 7, name: "Dogecoin", logo: "/img/coins/DOGE.svg"}
-7: {symbol: "DASH", priority: 0, id: 8, name: "DASH", logo: "/img/coins/DASH.svg"}
-8: {symbol: "XLM", priority: 0, id: 9, name: "Stellar", logo: "/img/coins/XLM.svg"}
-9: {symbol: "BNB", priority: 0, id: 10, name: "Binance Coin", logo: "/img/coins/BNB.svg"}
-10: {symbol: "LINK", priority: 0, id: 11, name: "Chainlink", logo: "/img/coins/LINK.svg"}
-11: {symbol: "BAT", priority: 0, id: 12, name: "Basic Attention Token", logo: "/img/coins/BAT.svg"}
-12: {symbol: "AKRO", priority: 0, id: 13, name: "Akropolis", logo: "/img/coins/AKRO.svg"}
-13: {symbol: "ATOM", priority: 0, id: 14, name: "Cosmos", logo: "/img/coins/ATOM.svg"}
-14: {symbol: "DOT", priority: 0, id: 15, name: "Polkadot", logo: "/img/coins/DOT.svg"}
-15: {symbol: "MTL", priority: 0, id: 16, name: "Metal", logo: "/img/coins/MTL.svg"}
-16: {symbol: "FUN", priority: 0, id: 17, name: "FunFair", logo: "/img/coins/FUN.svg"}
-17: {symbol: "POLY", priority: 0, id: 18, name: "Polymath", logo: "/img/coins/POLY.svg"}
-18: {symbol: "COMP", priority: 0, id: 19, name: "Compound", logo: "/img/coins/COMP.svg"}
-19: {symbol: "LOOM", priority: 0, id: 20, name: "Loom Network", logo: "/img/coins/LOOM.svg"}
-20: {symbol: "MANA", priority: 0, id: 21, name: "Decentraland", logo: "/img/coins/MANA.svg"}
-21: {symbol: "USDC", priority: 0, id: 22, name: "USD Coin", logo: "/img/coins/USDC.svg"}
-22: {symbol: "ZRX", priority: 0, id: 23, name: "0x", logo: "/img/coins/ZRX.svg"}
-23: {symbol: "UNI", priority: 0, id: 24, name: "Uniswap", logo: "/img/coins/UNI.svg"}
-24: {symbol: "PAX", priority: 0, id: 25, name: "Paxos Standard", logo: "/img/coins/PAX.svg"}
-25: {symbol: "TUSD", priority: 0, id: 26, name: "TrueUSD", logo: "/img/coins/TUSD.svg"}
-26: {symbol: "DAI", priority: 0, id: 27, name: "Dai", logo: "/img/coins/DAI.svg"}
-27: {symbol: "SNGLS", priority: 0, id: 28, name: "SingularDTV", logo: "/img/coins/SNGLS.svg"}
-28: {symbol: "ENJ", priority: 0, id: 29, name: "Enjin Coin", logo: "/img/coins/ENJ.svg"}
-29: {symbol: "TRX", priority: 0, id: 30, name: "TRON", logo: "/img/coins/TRX.svg"}
-30: {symbol: "YFI", priority: 0, id: 31, name: "yearn.finance", logo: "/img/coins/YFI.svg"}
-31: {symbol: "BUSD", priority: 0, id: 32, name: "Binance USD", logo: "/img/coins/BUSD.svg"}
-32: {symbol: "BCH", priority: -1, id: 33, name: "Bitcoin Cash", logo: "/img/coins/BCH.svg"}
+
 # Work Flow:
 
 ##  - Teams work on JS collab or as individuals and communicate
@@ -101,10 +68,6 @@
 ##  - We then transition to using Foundation API for styling
         - Must be mobile responsive
         - Overall styling is least important
-
-## Screen Shots
-
-![project-1-CC](basicoutline.png)
 
 ## Workflow
 
@@ -120,8 +83,23 @@
     - Google maps generates the location
 
 
-## priorities:
-    - get map working
+## Grading Checklist:
+    - Map presents vendors within a certain radius
+    - Search radius is stored in local storage
+    - Foundation was used for styling
+    - Google places, google geolocation, coinmap apis
+    - Github is structured in easy to read way
+    - Deliver MVP
+    - Utilized agile project management to adapt to individual challenges as a group
+    - Project is adaptive to screen size change
+
+## Screenshots
+Title
+![coin-finder](assets/img/titlegraphic.png)
+Plain Map
+![coin-finder](assets/img/plainmap.png)
+Map w/ Search Results
+![coin-finder](assets/img/mapwresults.png)
     
 
 

@@ -65,8 +65,8 @@ searchButton.addEventListener('click', function () {
 
         if (i < 10) {
 
-          var listElement = document.createElement('li');
-          listElement.innerHTML = '<ul>' + x + ' ' + venueName + '</ul>'; 
+          var listElement = document.createElement('p');
+          listElement.innerHTML = '<p>' + x + ' ' + venueName + '</p>';
           resultsElement.appendChild(listElement);
 
         }
@@ -182,4 +182,8 @@ function returnPosition(position) {
 
   return [position.coords.latitude, position.coords.longitude];//seems not to return?
 }
+
+
+
+
 
